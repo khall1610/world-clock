@@ -10,7 +10,6 @@ function updateBathTime() {
 }
 updateBathTime();
 setInterval(updateBathTime, 1000);
-
 function updateMarylandTime() {
   // Maryland
   let marylandElement = document.querySelector("#maryland");
@@ -35,5 +34,28 @@ function updatePerthTime() {
   perthDateElement.innerHTML = perthCurrentTime.format("MMMM Do YYYY");
   perthTimeElement.innerHTML = perthCurrentTime.format("h:mm:ss A");
 }
+
+function updateCity(event) {
+  let cityTimezone = event.target.value;
+  let cityName = cityTimezone.replace("_", " ").split("/")[1];
+  let cityTime = moment().tz(cityTimezone);
+  let citiesElement = document.querySelector("#allCities");
+  citiesElement.innerHTML = `
+   <div class="cities">
+        <div>
+          <h2>${cityName}</h2>
+          <div class="date">${cityTime.format("MMMM Do YYYY")}</div>
+        </div>
+        <div class="time">${cityTime.format("h:mm:ss")}<small>${cityTime.format(
+    "A"
+  )}</small></div>
+      </div>
+  `;
+}
+
 updatePerthTime();
 setInterval(updatePerthTime, 1000);
+
+let citiesSelectElement = document.querySelector("#city");
+
+citiesSelectElement.addEventListener("change", updateCity);

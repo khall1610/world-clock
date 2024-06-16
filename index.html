@@ -11,12 +11,18 @@
   <body>
     <div class="container">
       <h1>World Clock</h1>
-      <select>
+      <select id="city">
         <option value="">Select a City</option>
-        <option value="">Bath, England</option>
-        <option value="">Perth, Australia</option>
-        <option value="">Maryland, USA</option>
+        <option value="Europe/London">Bath, England</option>
+        <option value="Australia/Perth">Perth, Australia</option>
+        <option value="America/New_York">Maryland, USA</option>
+        <option value="Europe/Paris">Paris, France</option>
+        <option value="Australia/Melbourne">Melbourne, Australia</option>
+        <option value="Asia/Bangkok">Bangkok, Thailand</option>
+
       </select>
+
+     <div id="allCities">
       <div class="cities" id="bath">
         <div>
           <h2>Bath, UK</h2>
@@ -25,6 +31,7 @@
         <div class="time"></div>
       </div>
 
+ 
           <div class="cities" id="maryland">
         <div>
           <h2>Maryland, USA</h2>
@@ -40,7 +47,7 @@
         </div>
         <div class="time"></div>
       </div>
-
+</div>
     <footer>
       This project was coded by Kirsty Hall, code sourced on
       <a href="https://github.com/khall1610/world-clock">GitHub</a> and is
